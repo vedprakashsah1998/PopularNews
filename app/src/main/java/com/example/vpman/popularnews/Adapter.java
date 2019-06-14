@@ -49,28 +49,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder>
         final MyViewHolder holder = holders;
         Article model = articles.get(position);
 
-      /*  if (model.isShowShimmer())
-        {
-            holder.shimmerFrameLayout.startShimmer();
-        }
-        else
-        {
-            holder.shimmerFrameLayout.stopShimmer();
-            holder.author.setBackground(null);
-            holder.desc.setBackground(null);
-            holder.source.setBackground(null);
-            holder.time.setBackground(null);
-            holder.published_ad.setBackground(null);
-            holder.title.setBackground(null);
-
-
-            holder.title.setText(model.getTitle());
-            holder.desc.setText(model.getDescription());
-            holder.source.setText(model.getSource().getName());
-            holder.time.setText(" \u2022 " + Utils.DateToTimeFormat(model.getPublishedAt()));
-            holder.published_ad.setText(Utils.DateFormat(model.getPublishedAt()));
-            holder.author.setText(model.getAuthor());
-        }*/
+    
 
 
         RequestOptions requestOptions = new RequestOptions();
@@ -92,20 +71,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder>
                     @Override
                     public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
                         holder.progressBar.setVisibility(View.GONE);
-                     //   holder.progressBar.setVisibility(View.GONE);
+                    
                         return false;
                     }
-                    /*@Override
-                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                        holder.progressBar.setVisibility(View.GONE);
-                        return false;
-                    }
-
-                    @Override
-                    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                        holder.progressBar.setVisibility(View.GONE);
-                        return false;
-                    }*/
+                  
                 })
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .into(holder.imageView);
